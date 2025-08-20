@@ -1,30 +1,32 @@
-# 🎬 Movie Recommendation System (Content-Based + Collaborative)
+# 🎬 Movie Recommendation System
 
-An end-to-end recommender using the **MovieLens (ml-latest-small)** dataset.
+This project recommends movies to users using **Content-Based Filtering** and **Collaborative Filtering (Matrix Factorization with SVD)** on the [MovieLens Dataset](https://files.grouplens.org/datasets/movielens/).
 
-- **Content-based**: cosine similarity on TF-IDF over movie *title + genres*  
-- **Collaborative**: **matrix factorization** with **Truncated SVD** on a user-item matrix (mean-centered)
-- **CLI**: recommend for a user or find movies similar to a given title
-- **Artifacts**: cached models so you don’t rebuild every time
+## 📂 Dataset
+- Source: [MovieLens (ml-latest-small)](https://files.grouplens.org/datasets/movielens/ml-latest-small.zip)  
+- Automatically downloaded if not found locally.  
+- Contains **610 users**, **9,000+ movies**, and **100,000 ratings**.
+
+## 🛠️ Approaches Used
+- **Content-Based Filtering**  
+  - TF-IDF on movie **titles + genres**  
+  - Cosine similarity for recommendations  
+
+- **Collaborative Filtering**  
+  - User–Item matrix with mean-centering  
+  - **Truncated SVD** for matrix factorization  
+  - Recommends movies based on similar users  
+
+## 📊 Example Results
+| Query                            | Top Recommendations (Sample) |
+|----------------------------------|-------------------------------|
+| `--similar "Toy Story (1995)"`   | Jumanji (1995), Aladdin (1992), Lion King (1994) |
+| `--user 1 --topn 5`              | Braveheart (1995), Apollo 13 (1995), Batman Forever (1995) |
 
 ---
 
-## 🚀 Quickstart
-
+## 🚀 How to Run
+### 1. Install requirements
 ```bash
-# 1) Create and activate a virtual environment (recommended)
-python3 -m venv venv
-source venv/bin/activate      # Linux/Mac
-# venv\Scripts\activate       # Windows PowerShell
-
-# 2) Install dependencies
 pip install -r requirements.txt
-
-# 3) Build artifacts (auto-downloads MovieLens if not present)
-python recommender.py --build
-
-# 4a) Get top-10 recommendations for USER 1 (collaborative)
-python recommender.py --user 1 --topn 10
-
-# 4b) Get movies similar to a given title (content-based)
-python recommender.py --similar "Toy Story (1995)" --topn 10
+```

@@ -30,3 +30,23 @@ This project recommends movies to users using **Content-Based Filtering** and **
 ```bash
 pip install -r requirements.txt
 ```
+
+### 2. Build models
+```bash
+python recommender.py --build
+```
+
+### 3. Usage Examples
+# 🔍 Search movies
+```bash
+python recommender.py --search "toy"
+```
+```bash
+# 🎥 Recommend similar movies (content-based)
+python recommender.py --similar "Toy Story (1995)" --topn 5
+```
+
+```bash
+# 👤 Recommend for a user (collaborative filtering)
+python recommender.py --user 1 --topn 5
+```

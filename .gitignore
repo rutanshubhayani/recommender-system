@@ -1,0 +1,28 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# Artifacts and models
+artifacts/
+*.npy
+*.npz
+*.pkl
+*.json
+
+# Dataset (large files should not be pushed, let script download)
+data/
+!data/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
